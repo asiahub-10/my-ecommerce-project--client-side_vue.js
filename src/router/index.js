@@ -117,12 +117,12 @@ export default new Router({
       component: ContactInfo
     },
     {
-      path: '/shipping-info/:id',
+      path: '/shipping-info',
       name: 'ShippingInfo',
       component: ShippingInfo
     },
     {
-      path: '/payment-info/:id/:name/:mobile/:address',
+      path: '/payment-info',
       name: 'PaymentInfo',
       component: PaymentInfo
     },

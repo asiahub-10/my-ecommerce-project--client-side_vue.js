@@ -152,7 +152,12 @@ export default {
           // this.msg = res.data.message
           // console.log(this.msg)
           // window.location.reload()
-          window.location.replace('/order-confirmation')
+          // window.location.replace('/order-confirmation')
+          var msg = res.data.message
+          this.$router.push({
+            name: 'ConfirmOrder',
+            params: {msg: msg}
+          })
         })
     }
   }
