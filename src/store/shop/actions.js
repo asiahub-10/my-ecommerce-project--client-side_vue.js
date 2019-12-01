@@ -1,6 +1,4 @@
 import api from './../../api/fixtures'
-// import newProduct from './../../components/home/NewProduct'
-// import product from './../../api/ShopProduct'
 
 export const getProfile = ({ commit }) => {
   api.getProfile(profile => {
@@ -9,18 +7,10 @@ export const getProfile = ({ commit }) => {
 }
 
 export const getProducts = ({ commit }) => {
-  // if (localStorage.getItem('newProducts')) {
-  //   newProduct.getProducts(products => {
-  //     commit('RECEIVE_PRODUCTS', products)
-  //   })
-  // } else {
   api.getProducts(products => {
     commit('RECEIVE_PRODUCTS', products)
+    // console.log(products)
   })
-  // product.getProducts(products => {
-  //   commit('RECEIVE_PRODUCTS', products)
-  // })
-  // }
 }
 
 // export const getNewProducts = ({ commit }) => {

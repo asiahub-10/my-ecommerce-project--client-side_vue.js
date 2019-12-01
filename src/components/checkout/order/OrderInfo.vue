@@ -151,7 +151,8 @@ export default {
         .then((res) => {
           // this.msg = res.data.message
           // console.log(this.msg)
-
+          // window.location.reload()
+          window.location.replace('/order-confirmation')
         })
     }
   }

@@ -5,7 +5,7 @@
       <div class="col-sm-12 col-md-8 col-lg-6 mx-auto">
         <p class="font-weight-bold rgba-grey-slight card card-body" style="font-size: medium;">
           Payment Due Total: {{total | formatMoney}} (for {{itemsQuantity}} {{'item' | pluralize(itemsQuantity) }})</p>
-        <div v-if="total | formatMoney >= 0">
+        <div v-if="total | formatMoney > 0">
           <p class="orange-text font-weight-bold text-capitalize" style="font-size: large;"><u>Select your payment method</u></p>
           <div class="container">
             <order/>

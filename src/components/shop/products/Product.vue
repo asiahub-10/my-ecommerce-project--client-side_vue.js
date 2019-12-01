@@ -46,10 +46,7 @@ export default {
     product: Object
   },
   // props: ['products'],
-  components: { AddToCart },
-  methods: {
-
-  }
+  components: { AddToCart }
 }
 </script>
 

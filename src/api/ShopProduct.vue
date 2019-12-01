@@ -1,38 +1,44 @@
 <template>
   <div>
-    <fixtures :products="products"/>
+    <!--<fixtures :products="products"/>-->
   </div>
 </template>
 
 <script>
-import Fixtures from './fixtures'
+// import Fixtures from './fixtures'
 
 export default {
   name: 'ShopProduct',
-  components: {
-    'fixtures': Fixtures
-  },
+  // components: {
+  //   'fixtures': Fixtures
+  // },
   data () {
     return {
-      products: []
+      // products: []
     }
   },
   methods: {
-    getData () {
-      this.$api.get('all-product')
-        .then(res => {
-          // let allProduct = res.data
-          // localStorage.setItem('allProduct', allProduct)
-          localStorage.clear()
-          this.products = JSON.stringify(res.data)
-          // this.products.push(allProduct)
-          // this.products = res.data
-          // console.log(this.products)
-          // JSON.parse(undefined)
-        })
-    }
+    // allProduct () {
+    //   this.$api.get('all-product')
+    //     .then(res => {
+    //       // let allProduct = res.data
+    //       // localStorage.setItem('allProduct', allProduct)
+    //       // localStorage.clear()
+    //       // global.pro = JSON.stringify(res.data)
+    //       // this.products.push(global.pro)
+    //       this.products = JSON.stringify(res.data)
+    //       // console.log(this.products)
+    //       // JSON.parse(undefined)
+    //       // console.log('vue' + this.products)
+    //       // console.log(res.data)
+    //     })
+    //     // .then(cb(this.products))
+    //     // .then(cb => {
+    //     //   console.log('vue Page' + this.products)
+    //     // })
+    // }
   },
-  mounted () {
+  created () {
     // localStorage.clear()
     // this.$api.get('all-product')
     //   .then(res => {
@@ -44,11 +50,37 @@ export default {
     //     // console.log(this.products)
     //     // JSON.parse(undefined)
     //   })
-    this.getData()
+    // this.allProduct()
+    // this.$api.get('all-product')
+    //   .then(res => {
+    //     this.products = JSON.stringify(res.data)
+    //   })
+    //   .then(setTimeout(() => cb(this.products), 200))
   },
   getProducts (cb) {
-    var products = JSON.parse(this.products)
-    setTimeout(() => cb(products), 200)
+    // function rquest (callback) {
+    //   this.$api.get('all-product')
+    //     .then(res => {
+    //       callback(res.data)
+    //     })
+    // }
+    //
+    // function myCallback (data) {
+    //   var pro = data
+    //   setTimeout(() => cb(pro), 200)
+    // }
+    //
+    // rquest(myCallback)
+    //
+    // console.log('vue Page' + this.products)
+    // var products = JSON.parse(this.products)
+    // this.$api.get('all-product')
+    //   .then(res => {
+    //     var products = res.data
+    //     console.log(products)
+    //     setTimeout(() => cb(products), 200)
+    //   })
+    // setTimeout(() => cb(products), 200)
   }
 }
 </script>

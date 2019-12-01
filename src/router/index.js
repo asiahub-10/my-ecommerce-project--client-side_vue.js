@@ -26,6 +26,7 @@ import ContactInfo from '../components/checkout/ContactInfo'
 import ShippingInfo from '../components/checkout/shipping/ShippingInfo'
 import PaymentInfo from '../components/checkout/payment/PaymentInfo'
 import Shop from '../components/shop/Shop'
+import ConfirmOrder from '../components/checkout/order/OrderConfirmation'
 
 Vue.use(Router)
 // Vue.use(VueSession)
@@ -124,6 +125,11 @@ export default new Router({
       path: '/payment-info/:id/:name/:mobile/:address',
       name: 'PaymentInfo',
       component: PaymentInfo
+    },
+    {
+      path: '/order-confirmation',
+      name: 'ConfirmOrder',
+      component: ConfirmOrder
     }
   ]
 
