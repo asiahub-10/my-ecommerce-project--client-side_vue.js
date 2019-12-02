@@ -102,7 +102,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
+// import { mapGetters } from 'vuex'
 
 export default {
   name: 'OrderInfo',
@@ -146,6 +147,9 @@ export default {
       document.getElementById('orderBtn').disabled = true
       document.getElementById('cardForm').hidden = true
     },
+    ...mapActions([
+      'removeFromCart'
+    ]),
     submitOrderForm () {
       this.$api.post('confirm-order', { shipping: this.shipping, customerId: this.customerId, total: this.total, productItems: this.items, payment: this.payment })
         .then((res) => {
@@ -154,12 +158,18 @@ export default {
           // window.location.reload()
           // window.location.replace('/order-confirmation')
           var msg = res.data.message
+          this.items.forEach((item) => {
+            this.removeFromCart(item)
+          })
           this.$router.push({
             name: 'ConfirmOrder',
             params: {msg: msg}
           })
         })
     }
+  },
+  created () {
+    // console.log(this.items.length)
   }
 }
 </script>
