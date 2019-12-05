@@ -98,6 +98,10 @@
     <form>
       <button @click.prevent="submitOrderForm" type="submit" id="orderBtn" disabled class="btn btn-warning font-weight-bold mt-4 px-5">place order</button>
     </form>
+    <div class="mt-3">
+      <p id="orderProcess" class="font-weight-bold text-warning"></p>
+      <p id="orderError" class="font-weight-bold text-danger"></p>
+    </div>
   </div>
 </template>
 
@@ -151,6 +155,9 @@ export default {
       'removeFromCart'
     ]),
     submitOrderForm () {
+      document.getElementById('orderBtn').disabled = true
+      document.getElementById('orderError').innerHTML = ' '
+      document.getElementById('orderProcess').innerHTML = 'Please wait a moment. Your order is processing...'
       this.$api.post('confirm-order', { shipping: this.shipping, customerId: this.customerId, total: this.total, productItems: this.items, payment: this.payment })
         .then((res) => {
           // this.msg = res.data.message
@@ -158,13 +165,19 @@ export default {
           // window.location.reload()
           // window.location.replace('/order-confirmation')
           var msg = res.data.message
+          var email = res.data.email
           this.items.forEach((item) => {
             this.removeFromCart(item)
           })
           this.$router.push({
             name: 'ConfirmOrder',
-            params: {msg: msg}
+            params: {msg: msg, email: email}
           })
+        })
+        .catch((e) => {
+          document.getElementById('orderProcess').innerHTML = ' '
+          document.getElementById('orderError').innerHTML = 'SORRY SOMETHING IS WRONG. ORDER FAILED.'
+          document.getElementById('orderBtn').disabled = false
         })
     }
   },
