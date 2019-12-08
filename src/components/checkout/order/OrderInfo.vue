@@ -176,7 +176,7 @@ export default {
         })
         .catch((e) => {
           document.getElementById('orderProcess').innerHTML = ' '
-          document.getElementById('orderError').innerHTML = 'SORRY SOMETHING IS WRONG. ORDER FAILED.'
+          document.getElementById('orderError').innerHTML = 'Sorry, something went wrong. ORDER FAILED. Please retry.'
           document.getElementById('orderBtn').disabled = false
         })
     }

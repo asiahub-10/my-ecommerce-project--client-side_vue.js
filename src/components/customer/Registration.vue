@@ -182,7 +182,11 @@ export default {
         // document.getElementById('regBtn').disabled = true
         this.$api.post('registration', this.register)
           .then(function (res) {
-            window.location.replace('/login')
+            // window.location.replace('/login')
+            this.$router.go('/login')
+            if (res.data) {
+              // this.$router.go('/login')
+            }
           })
       }
     }
