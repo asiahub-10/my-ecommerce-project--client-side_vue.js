@@ -1,7 +1,11 @@
 <template>
   <div>
     <div class="container my-5">
-      <h1 class="text-center mb-4 orange-text form-title">Login</h1>
+      <h1 class="text-center mb-3 orange-text form-title">Login</h1>
+      <div v-if="$route.params.msg" class="mb-4">
+        <img src="../../../static/images/register_success.png" alt="Register success" />
+        <h4 class="text-muted mt-3">{{ $route.params.msg }}</h4>
+      </div>
       <div class="row">
         <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto">
           <div class="card">
