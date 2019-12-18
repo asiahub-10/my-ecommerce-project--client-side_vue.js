@@ -94,7 +94,7 @@ export default {
         // document.getElementById('regBtn').disabled = true
         this.$api.post('login', this.login)
           .then(res => {
-            let customerId = res.data.customer.id
+            let customerId = res.data.customer
             // console.log(customerId)
             localStorage.setItem('customerId', customerId)
             // this.forceUpdate()

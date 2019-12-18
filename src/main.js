@@ -12,6 +12,8 @@ import VueResource from 'vue-resource'
 import accounting from 'accounting'
 import pluralize from 'pluralize'
 import store from './store'
+import ZoomOnHover from '../node_modules/vue-zoom-on-hover/dist/index.esm.min.js'
+Vue.use(ZoomOnHover)
 
 Vue.config.productionTip = false
 Vue.use({

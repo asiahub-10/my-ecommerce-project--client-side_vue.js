@@ -4,10 +4,10 @@
     <div class="single rgba-brown-slight">
       <div class="container pt-5 pb-4">
        <div class="row">
-         <div class="col-sm-6">
-           <img :src="'http://localhost/my-project/public/'+product.product_image" class="img-responsive p-2 product-img"/>
+         <div class="col-sm-6 mb-4">
+             <zoom-on-hover :img-normal="'http://localhost/my-project/public/'+product.product_image" :img-zoom="'http://localhost/my-project/public/'+product.product_image" :scale="2" class="card-img p-2 product-img mx-auto"></zoom-on-hover>
          </div>
-         <div class="col-sm-6 text-left">
+         <div class="col-sm-6 text-left product-details">
            <h3 class="orange-text">{{ product.product_name }}</h3>
            <div class="description">
              <p class="text-muted ">{{ product.product_short_description }}.</p>
@@ -15,12 +15,10 @@
            <div class="simpleCart_shelfItem">
              <p><i class="item_price text-info font-weight-bold">{{product.product_price | formatMoney}}</i></p>
            </div>
+           <AddToCart class="btn sunny-morning-gradient px-3 btn-text" :product="product"/><span v-if="!product.product_quantity" class="text-danger font-italic stock-out add-btn">Out of Stock</span>
          </div>
        </div>
         <!--<p class=" col-sm-6 ml-auto text-left"><a class="btn sunny-morning-gradient px-3 btn-text" href="#">Add to cart</a></p>-->
-        <p class=" col-sm-6 ml-auto text-left">
-          <AddToCart class="btn sunny-morning-gradient px-3 btn-text" :product="product"/><span v-if="!product.product_quantity" class="text-danger font-italic stock-out">Out of Stock</span>
-        </p>
       </div>
     </div>
     <!-- single -->
@@ -32,12 +30,12 @@
           <div class="">
             <ul class="nav nav-pills border-bottom">
               <li class="nav-item">
-                <a class="nav-link active detail-btn-text" data-toggle="pill" href="#pills-music">
+                <a class="nav-link active detail-btn-text" data-toggle="pill" href="#pills-product">
                   Product Detail
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link detail-btn-text" data-toggle="pill" href="#pills-bus">
+                <a class="nav-link detail-btn-text" data-toggle="pill" href="#pills-review">
                   Product Review
                 </a>
               </li>
@@ -46,16 +44,36 @@
         </div>
       </div>
       <div class="row mx-auto">
-        <div class="tab-content">
-          <div class="tab-pane active" id="pills-music">
-            <h4>{{ product.product_name }}</h4>
+        <div class="tab-content col-sm-12">
+          <div class="tab-pane active" id="pills-product">
+            <h4 class="text-left">{{ product.product_name }}</h4>
             <!--<p>{{ product.product_long_description }}.</p>-->
             <h5 class="text-justify"><span v-html="product.product_long_description"></span></h5>
           </div>
-          <div class="tab-pane" id="pills-bus">
-            <h6 class="text-justify">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto corporis delectus eaque enim esse explicabo facere illum impedit ipsa iste labore laborum, minus necessitatibus nemo neque nisi reprehenderit sequi?
-            </h6>
+          <div class="tab-pane" id="pills-review">
+            <div class="text-justify text-muted my-3">
+              <h6 class="orange lighten-4 d-inline p-2 rounded "><i class="fas fa-user"></i> Ssfdfdsgg</h6>
+              <span>12/3/2019</span>
+              <br/>
+              <br/>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem beatae blanditiis culpa eveniet fugiat ipsam ipsum, laboriosam minima natus necessitatibus obcaecati pariatur quam quidem quo tenetur unde vitae voluptatum?</p>
+              <hr/>
+              <h6 class="orange lighten-4 d-inline p-2 rounded "><i class="fas fa-user"></i> Asafsdf Ssfd</h6>
+              <span>12/3/2019</span>
+              <br/>
+              <br/>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <hr/>
+            </div>
+            <h6 v-if="!customerId" class="text-justify font-italic font-weight-bold text-muted">Please click to <a href="/login" class="text-uppercase orange-text">login</a> to add a review. If you do not have an account, click to <a href="/register" class="text-uppercase orange-text">register</a> for registration.</h6>
+            <form  class="md-form amber-textarea active-amber-textarea mt-0">
+              <textarea :disabled="!customerId" id="reviewInput" class="md-textarea form-control" rows="3"></textarea>
+              <label for="reviewInput" style="font-size: large !important;"><i class="fas fa-pencil-alt"></i> Add your review</label>
+              <div class="text-left">
+                <input :disabled="!customerId" type="submit" class="btn peach-gradient text-white font-weight-bold text-uppercase" style="font-size: large;" value="submit"/>
+              </div>
+            </form>
+
           </div>
         </div>
       </div>
@@ -68,12 +86,19 @@
 <script>
 import AddToCart from '../shop/products/AddToCart'
 
+// if (localStorage.setItem('customerId')) {
+//   document.getElementById('reviewInput').disabled = false
+//   document.getElementById('reviewBtn').disabled = false
+// } else {
+//   document.getElementById('reviewInput').disabled = true
+//   document.getElementById('reviewBtn').disabled = true
+// }
+
 export default {
   name: 'ProductDetails',
   data () {
     return {
-      // product: {}
-      // productId: this.$route.params.id
+      customerId: localStorage.getItem('customerId')
     }
   },
   props: {
@@ -95,6 +120,7 @@ export default {
   },
   created () {
     // this.productById()
+    // localStorage.clear()
   }
 }
 </script>
@@ -120,6 +146,8 @@ export default {
   }
   .product-img {
     border: 4px dashed #ff9f49;
+    max-height: 300px;
+    max-width: 300px;
   }
   .btn-text {
     color: #ffffff;
@@ -164,5 +192,28 @@ export default {
   .stock-out {
     font-weight: bold;
     font-size: larger;
+  }
+
+  .active-amber-textarea.md-form label.active {
+    color: #ffa000;
+  }
+  .amber-textarea textarea.md-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #ffa000;
+    box-shadow: 0 1px 0 0 #ffa000;
+  }
+  .amber-textarea.md-form .prefix.active {
+    color: #ffa000;
+  }
+  .active-amber-textarea.md-form textarea.md-textarea:focus:not([readonly])+label {
+    color: #ffa000;
+  }
+
+  @media (max-width: 575px) {
+    .product-details {
+      text-align: center !important;
+    }
+    .add-btn {
+      margin: auto;
+    }
   }
 </style>
