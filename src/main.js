@@ -13,7 +13,9 @@ import accounting from 'accounting'
 import pluralize from 'pluralize'
 import store from './store'
 import ZoomOnHover from '../node_modules/vue-zoom-on-hover/dist/index.esm.min.js'
+
 Vue.use(ZoomOnHover)
+Vue.use(require('vue-moment'))
 
 Vue.config.productionTip = false
 Vue.use({

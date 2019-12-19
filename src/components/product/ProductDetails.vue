@@ -51,30 +51,25 @@
             <h5 class="text-justify"><span v-html="product.product_long_description"></span></h5>
           </div>
           <div class="tab-pane" id="pills-review">
-            <div class="text-justify text-muted my-3">
-              <h6 class="orange lighten-4 d-inline p-2 rounded "><i class="fas fa-user"></i> Ssfdfdsgg</h6>
-              <span>12/3/2019</span>
+            <div v-for="customerReview in customerReviews" :key="customerReview.id" class="text-justify text-muted my-3">
+              <h6 class="orange lighten-4 d-inline p-2 rounded "><i class="fas fa-user"></i> {{ customerReview.first_name }} {{ customerReview.last_name }}</h6>
+              <span>{{ customerReview.created_at | moment("DD MMMM, YYYY") }}</span>
               <br/>
               <br/>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem beatae blanditiis culpa eveniet fugiat ipsam ipsum, laboriosam minima natus necessitatibus obcaecati pariatur quam quidem quo tenetur unde vitae voluptatum?</p>
-              <hr/>
-              <h6 class="orange lighten-4 d-inline p-2 rounded "><i class="fas fa-user"></i> Asafsdf Ssfd</h6>
-              <span>12/3/2019</span>
-              <br/>
-              <br/>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <p>{{ customerReview.review }}</p>
               <hr/>
             </div>
             <h6 v-if="!customer" class="text-justify font-italic font-weight-bold text-muted">Please click to <router-link to="/login" class="text-uppercase orange-text">login</router-link> to add a review. If you do not have an account, click to <router-link to="/registration" class="text-uppercase orange-text">register</router-link> for registration.</h6>
             <form  class="md-form amber-textarea active-amber-textarea mt-0">
-              <input type="hidden" v-model="product.id"/>
+              <!--<input type="hidden" v-model="product.id"/>-->
+              <!--<input type="text" v-model="customer.id"/>-->
               <textarea v-model="review" :disabled="!customer" id="reviewInput" class="md-textarea form-control" rows="3"></textarea>
               <label for="reviewInput" style="font-size: large !important;"><i class="fas fa-pencil-alt"></i> Add your review</label>
               <div class="text-left">
                 <input @click.prevent="submitReview" :disabled="!customer" type="submit" class="btn peach-gradient text-white font-weight-bold text-uppercase" style="font-size: large;" value="submit"/>
               </div>
             </form>
-
+            <h3 class="text-warning">{{ msg }}</h3>
           </div>
         </div>
       </div>
@@ -92,8 +87,10 @@ export default {
   name: 'ProductDetails',
   data () {
     return {
-      customer: localStorage.getItem('customerId'),
-      review: null
+      customer: JSON.parse(localStorage.getItem('customerId')),
+      review: null,
+      msg: '',
+      customerReviews: null
     }
   },
   props: {
@@ -107,9 +104,20 @@ export default {
   // },
   methods: {
     submitReview () {
-      this.$api.get('customer-review', { review: this.review, customerId: this.customer.id, productId: this.product.id })
+      this.$api.post('customer-review', { review: this.review, customerId: this.customer.id, productId: this.product.id })
         .then((res) => {
-          console.log(res.data)
+          this.review = ''
+          this.msg = res.data.message
+        })
+        .cache((e) => {
+          this.msg = 'Your comment did not submitted. Please try again.'
+        })
+    },
+    getReview () {
+      this.$api.get('get-review/' + this.product.id)
+        .then((res) => {
+          this.customerReviews = res.data
+          // console.log(this.customerReviews)
         })
     }
     // productById: function () {
@@ -122,6 +130,7 @@ export default {
   created () {
     // this.productById()
     // localStorage.clear()
+    this.getReview()
   }
 }
 </script>
