@@ -65,12 +65,13 @@
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
               <hr/>
             </div>
-            <h6 v-if="!customerId" class="text-justify font-italic font-weight-bold text-muted">Please click to <a href="/login" class="text-uppercase orange-text">login</a> to add a review. If you do not have an account, click to <a href="/register" class="text-uppercase orange-text">register</a> for registration.</h6>
+            <h6 v-if="!customer" class="text-justify font-italic font-weight-bold text-muted">Please click to <router-link to="/login" class="text-uppercase orange-text">login</router-link> to add a review. If you do not have an account, click to <router-link to="/registration" class="text-uppercase orange-text">register</router-link> for registration.</h6>
             <form  class="md-form amber-textarea active-amber-textarea mt-0">
-              <textarea :disabled="!customerId" id="reviewInput" class="md-textarea form-control" rows="3"></textarea>
+              <input type="hidden" v-model="product.id"/>
+              <textarea v-model="review" :disabled="!customer" id="reviewInput" class="md-textarea form-control" rows="3"></textarea>
               <label for="reviewInput" style="font-size: large !important;"><i class="fas fa-pencil-alt"></i> Add your review</label>
               <div class="text-left">
-                <input :disabled="!customerId" type="submit" class="btn peach-gradient text-white font-weight-bold text-uppercase" style="font-size: large;" value="submit"/>
+                <input @click.prevent="submitReview" :disabled="!customer" type="submit" class="btn peach-gradient text-white font-weight-bold text-uppercase" style="font-size: large;" value="submit"/>
               </div>
             </form>
 
@@ -85,20 +86,14 @@
 
 <script>
 import AddToCart from '../shop/products/AddToCart'
-
-// if (localStorage.setItem('customerId')) {
-//   document.getElementById('reviewInput').disabled = false
-//   document.getElementById('reviewBtn').disabled = false
-// } else {
-//   document.getElementById('reviewInput').disabled = true
-//   document.getElementById('reviewBtn').disabled = true
-// }
+// import products from "../../store/shop/modules/products";
 
 export default {
   name: 'ProductDetails',
   data () {
     return {
-      customerId: localStorage.getItem('customerId')
+      customer: localStorage.getItem('customerId'),
+      review: null
     }
   },
   props: {
@@ -111,6 +106,12 @@ export default {
   //   }
   // },
   methods: {
+    submitReview () {
+      this.$api.get('customer-review', { review: this.review, customerId: this.customer.id, productId: this.product.id })
+        .then((res) => {
+          console.log(res.data)
+        })
+    }
     // productById: function () {
     //   this.$http.get('http://localhost/my-project/public/api/product-by-id/' + this.productId)
     //     .then(function (res) {

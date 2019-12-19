@@ -42,13 +42,13 @@ export default {
     }
   },
   mounted () {
-    let customerId = localStorage.getItem('customerId')
-    // console.log(customerId)
-    this.$api.get('customer-info/' + customerId)
-      .then(res => {
-        // console.log(res)
-        this.customer = res.data
-      })
+    // let customerId = localStorage.getItem('customerId')
+    // // console.log(customerId)
+    // this.$api.get('customer-info/' + customerId)
+    //   .then(res => {
+    //     // console.log(res)
+    //     this.customer = res.data
+    //   })
   }
 }
 </script>

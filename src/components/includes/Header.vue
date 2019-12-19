@@ -10,21 +10,20 @@
                 <span class="text-warning">Asis</span>Fashion </router-link>
             </h1>
             <!--<router-view name="login"/>-->
-            <!--<div class="orange-text text-center pt-3 pb-4 mb-2" v-if="user!==null">-->
-              <!--&lt;!&ndash;<div class="orange-text text-center my-4" v-if="userId!==null">&ndash;&gt;-->
-              <!--<div class="user-login" data-toggle="collapse" data-target="#logout">-->
-                <!--<span><i class="fas fa-user"></i></span>-->
-                <!--{{ customer.first_name }} {{ customer.last_name }}-->
-                <!--<i class="fas fa-caret-down"></i>-->
-              <!--</div>-->
-              <!--<button @click="userLogout" id="logout" class="collapse btn btn-white text-warning logout text-uppercase mx-auto">-->
-                <!--logout-->
-                <!--<i class="fas fa-sign-out-alt"></i>-->
-              <!--</button>-->
-            <!--</div>-->
+            <div class=" orange-text text-center pt-3 pb-4 mb-2" v-if="customer!==null">
+              <div class="user-login bg-white d-inline py-2 px-4 rounded" data-toggle="collapse" data-target="#logout">
+                <span><i class="fas fa-user mr-1"></i></span>
+                {{ customer.first_name }} {{ customer.last_name }}
+                <i class="fas fa-caret-down"></i>
+              </div>
+              <button @click="userLogout" id="logout" class="collapse btn btn-white text-warning logout text-uppercase mx-auto">
+                logout
+                <i class="fas fa-sign-out-alt"></i>
+              </button>
+            </div>
 
             <!--<router-link v-if="user === null" to="/login" title="Login">-->
-            <router-link to="/login" title="Login">
+            <router-link v-else to="/login" title="Login">
               <i class="fas fa-user-circle user my-2 fa-2x"></i>
             </router-link>
           </div>
@@ -86,14 +85,12 @@ export default {
   },
   data () {
     return {
-      user: '',
-      customer: {}
+      customer: JSON.parse(localStorage.getItem('customerId'))
     }
   },
   methods: {
     userLogout () {
-      let customerId = localStorage.getItem('customerId')
-      this.$api.post('logout/' + customerId)
+      this.$api.post('logout/' + this.customer.id)
         .then(res => {
           localStorage.removeItem('customerId')
           window.location.reload(true)
@@ -101,23 +98,8 @@ export default {
         })
     }
   },
-  // computed: {
-  //   userId: function () {
-  //     return (localStorage.getItem('customerId'), 200)
-  //   }
-  // },
-  mounted () {
-    let customerId = localStorage.getItem('customerId')
-    // console.log(customerId)
-    this.$api.get('customer-info/' + customerId)
-      .then(res => {
-        // console.log(res)
-        this.customer = res.data
-      })
-  },
   created () {
-    this.user = localStorage.getItem('customerId')
-    // console.log(localStorage.getItem('customerId'))
+    // localStorage.clear()
   }
 }
 </script>
@@ -133,6 +115,7 @@ export default {
   .user-login {
     font-size: 18px;
     cursor: pointer;
+    border: 2px solid;
   }
   .logout {
     padding: 10px 30px;
