@@ -189,10 +189,16 @@ export default {
             // window.location.replace('/login')
             document.getElementById('error').innerHTML = ' '
             document.getElementById('regBtn').disabled = true
-            this.$router.push({
-              name: 'Login',
-              params: {msg: res.data.message}
+            this.$swal({
+              title: res.data.message,
+              icon: 'success'
             })
+              .then((value) => {
+                this.$router.push({
+                  name: 'Login',
+                  params: {msg: res.data.message}
+                })
+              })
           })
           .catch((e) => {
             document.getElementById('error').innerHTML = e.response.data.message

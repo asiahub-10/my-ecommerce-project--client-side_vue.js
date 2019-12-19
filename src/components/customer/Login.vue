@@ -1,17 +1,19 @@
 <template>
   <div>
-    <div v-if="customer !== null" class="my-5 container card card-body">
-      <div class="text-center orange-text">
-        <h2>You are logged in.</h2>
-        <img src="../../../static/images/logedin.png" alt="user_icon"/>
+    <div v-if="customer !== null" class="my-5 container ">
+      <div class="col-lg-5 col-md-8 mx-auto card card-body">
+        <div class="text-center orange-text">
+          <h2>You are logged in.</h2>
+          <img src="../../../static/images/logedin.png" alt="user_icon"/>
+        </div>
       </div>
     </div>
     <div class="container my-5" v-else>
       <h1 class="text-center mb-3 orange-text form-title">Login</h1>
-      <div v-if="$route.params.msg" class="mb-4">
-        <img src="../../../static/images/register_success.png" alt="Register success" />
-        <h4 class="text-muted mt-3">{{ $route.params.msg }}</h4>
-      </div>
+      <!--<div v-if="$route.params.msg" class="mb-4">-->
+        <!--<img src="../../../static/images/register_success.png" alt="Register success" />-->
+        <!--<h4 class="text-muted mt-3">{{ $route.params.msg }}</h4>-->
+      <!--</div>-->
       <div class="row">
         <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto">
           <div class="card">

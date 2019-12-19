@@ -13,9 +13,11 @@ import accounting from 'accounting'
 import pluralize from 'pluralize'
 import store from './store'
 import ZoomOnHover from '../node_modules/vue-zoom-on-hover/dist/index.esm.min.js'
+import VueSwal from 'vue-swal'
 
 Vue.use(ZoomOnHover)
 Vue.use(require('vue-moment'))
+Vue.use(VueSwal)
 
 Vue.config.productionTip = false
 Vue.use({

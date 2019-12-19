@@ -69,7 +69,6 @@
                 <input @click.prevent="submitReview" :disabled="!customer" type="submit" class="btn peach-gradient text-white font-weight-bold text-uppercase" style="font-size: large;" value="submit"/>
               </div>
             </form>
-            <h3 class="text-warning">{{ msg }}</h3>
           </div>
         </div>
       </div>
@@ -89,7 +88,6 @@ export default {
     return {
       customer: JSON.parse(localStorage.getItem('customerId')),
       review: null,
-      msg: '',
       customerReviews: null
     }
   },
@@ -107,7 +105,10 @@ export default {
       this.$api.post('customer-review', { review: this.review, customerId: this.customer.id, productId: this.product.id })
         .then((res) => {
           this.review = ''
-          this.msg = res.data.message
+          this.$swal({
+            title: res.data.message,
+            icon: 'https://cdn.iconscout.com/icon/free/png-256/love-romantic-valentine-day-message-chat-9-24049.png'
+          })
         })
         .cache((e) => {
           this.msg = 'Your comment did not submitted. Please try again.'
