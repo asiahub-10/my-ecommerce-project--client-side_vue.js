@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="new-products orange lighten-4 pt-5 pb-3">
+    <div class="new-products bg-white pt-5 pb-3">
       <div class="container">
         <h3 class="mb-5 pt-3 text-muted font-weight-bold">New Products</h3>
           <div class="row" v-for="(row, index) in productRows" :key="index">

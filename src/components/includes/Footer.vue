@@ -97,13 +97,20 @@ export default {
     }
   },
   methods: {
-    allCategory: function () {
-      this.$http.get('http://localhost/my-project/public/api/all-published-category')
-        .then(function (response) {
-          // console.log(response)
-          this.categories = response.body
+    allCategory () {
+      this.$api.get('all-published-category')
+        .then((res) => {
+          this.categories = res.data
+          // console.log(this.categories)
         })
     },
+    // allCategory: function () {
+    //   this.$http.get('http://localhost/my-project/public/api/all-published-category')
+    //     .then(function (response) {
+    //       // console.log(response)
+    //       this.categories = response.body
+    //     })
+    // },
     allBrand: function () {
       this.$http.get('http://localhost/my-project/public/api/all-published-brand')
         .then(function (response) {

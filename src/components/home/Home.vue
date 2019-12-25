@@ -1,7 +1,7 @@
 <template>
     <div>
-      <!--<slider></slider>-->
       <NewProduct></NewProduct>
+      <slider></slider>
       <!--<NewProductList></NewProductList>-->
       <!--&lt;!&ndash; banner-bottom &ndash;&gt;-->
       <!--<div class="banner-bottom">-->
