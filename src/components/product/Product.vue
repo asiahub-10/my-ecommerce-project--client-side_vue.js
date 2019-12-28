@@ -21,7 +21,8 @@
         <div class=" col-lg-3 col-md-4 col-sm-5 side-bar-column px-3">
           <ul class="list-unstyled card border-0  text-left text-capitalize font-italic side-bar-content">
             <hr class="border-color"/>
-            <li class=""><a href="" class="font "><span><img src="/static/images/new.png" alt="Icon" class="mr-2"></span>new arrivals</a></li>
+            <!--<li class=""><router-link to="/" class="font "><span><img src="/static/images/new.png" alt="Icon" class="mr-2"></span>new arrivals</router-link></li>-->
+            <li class=""><router-link to="/#newArrivals" class="font "><span><img src="/static/images/new.png" alt="Icon" class="mr-2"></span>new arrivals</router-link></li>
             <hr class="border-color"/>
             <li class=""><a href="" class="font "><span><img src="/static/images/best.png" alt="Icon" class="mr-2"></span>best sales</a></li>
             <hr class="border-color"/>

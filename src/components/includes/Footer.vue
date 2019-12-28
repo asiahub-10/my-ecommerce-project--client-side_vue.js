@@ -57,8 +57,8 @@
             <ul class="list-unstyled text-left">
               <li class="mb-2" ><a href="" class="text-style">About Us</a></li>
               <li class="mb-2" ><a href="" class="text-style">Contact Us</a></li>
-              <li class="mb-2" ><router-link to="/login" class="text-style">Login</router-link></li>
-              <li class="mb-2" ><a href="" class="text-style">Shopping Bag</a></li>
+              <li class="mb-2" ><router-link to="/login#content" class="text-style">Login</router-link></li>
+              <li class="mb-2" ><router-link to="/shopping-chart#content" class="text-style">Shopping Bag</router-link></li>
             </ul>
           </div>
         </div>

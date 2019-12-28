@@ -49,7 +49,7 @@
         </div>
       </div>
       <div class="row">
-        <h5 class="text-muted mx-auto mt-5">If you did not register, please <router-link to="/registration" class="orange-text font-weight-bold text-uppercase">register</router-link> first.</h5>
+        <h5 class="text-muted mx-auto mt-5">If you did not register, please <router-link to="/registration#content" class="orange-text font-weight-bold text-uppercase">register</router-link> first.</h5>
       </div>
     </div>
   </div>

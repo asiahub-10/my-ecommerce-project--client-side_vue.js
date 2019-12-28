@@ -11,7 +11,7 @@
       </div>
     </div>
     <my-header></my-header>
-    <router-view :key="$route.fullPath" ></router-view>
+    <router-view id="content" :key="$route.fullPath" ></router-view>
     <my-footer></my-footer>
   </div>
 </template>
