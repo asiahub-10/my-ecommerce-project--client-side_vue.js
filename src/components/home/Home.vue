@@ -1,7 +1,8 @@
 <template>
     <div>
-      <NewProduct></NewProduct>
-      <slider></slider>
+      <new-product/>
+      <slider/>
+      <best-sale/>
       <!--<NewProductList></NewProductList>-->
       <!--&lt;!&ndash; banner-bottom &ndash;&gt;-->
       <!--<div class="banner-bottom">-->
@@ -1054,12 +1055,14 @@
 <script>
 import Slider from './Slider'
 import NewProduct from './NewProduct'
+import BestSale from './BestSale'
 // import NewProductList from './NewProductList'
 export default {
   name: 'Home',
   components: {
     'slider': Slider,
-    'NewProduct': NewProduct
+    'new-product': NewProduct,
+    'best-sale': BestSale
     // 'NewProductList': NewProductList
   }
 }
