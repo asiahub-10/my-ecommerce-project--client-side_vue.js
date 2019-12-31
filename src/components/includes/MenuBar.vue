@@ -45,7 +45,10 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-uppercase" href="contact.html">Contact</a>
+              <router-link class="nav-link text-uppercase" to="/offer">Offers</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link text-uppercase" to="/contact">Contact</router-link>
             </li>
           </ul>
         </div>

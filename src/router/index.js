@@ -11,12 +11,14 @@ import shoppingCart from '../store/shop/modules/shopping-cart'
 
 import Content from '../components/home/Home'
 import About from '../components/about/About'
+import Contact from '../components/contact/Contact'
 import Product from '../components/product/Product'
 // import CustomerLogin from '../components/includes/LoggedIn'
 // import CategoryProduct from '../components/category/CategoryProduct'
 import CategoryProductList from '../components/category/CategoryProductList'
 // import BrandProduct from '../components/brand/BrandProduct'
 import BrandProductList from '../components/brand/BrandProductList'
+import Offer from '../components/offer/Offer'
 // import ProductDetails from '../components/product/ProductDetails'
 import SingleProduct from '../components/product/SingleProduct'
 import Registration from '../components/customer/Registration'
@@ -64,6 +66,11 @@ export default new Router({
       component: About
     },
     {
+      path: '/contact',
+      name: 'Contact',
+      component: Contact
+    },
+    {
       path: '/product',
       name: 'Product',
       component: Product,
@@ -79,6 +86,11 @@ export default new Router({
           component: BrandProductList
         }
       ]
+    },
+    {
+      path: '/offer',
+      name: 'Offer',
+      component: Offer
     },
     // {
     //   path: '/product-details/:id',

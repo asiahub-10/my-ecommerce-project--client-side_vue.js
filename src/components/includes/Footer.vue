@@ -56,7 +56,7 @@
             <div class="border-bottom"></div>
             <ul class="list-unstyled text-left">
               <li class="mb-2" ><router-link to="/about#content" class="text-style">About Us</router-link></li>
-              <li class="mb-2" ><a href="" class="text-style">Contact Us</a></li>
+              <li class="mb-2" ><router-link to="/contact" class="text-style">Contact Us</router-link></li>
               <li class="mb-2" ><router-link to="/login#content" class="text-style">Login</router-link></li>
               <li class="mb-2" ><router-link to="/shopping-chart#content" class="text-style">Shopping Bag</router-link></li>
             </ul>

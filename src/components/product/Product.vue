@@ -24,9 +24,9 @@
             <!--<li class=""><router-link to="/" class="font "><span><img src="/static/images/new.png" alt="Icon" class="mr-2"></span>new arrivals</router-link></li>-->
             <li class=""><router-link to="/#newArrivals" class="font "><span><img src="/static/images/new.png" alt="Icon" class="mr-2"></span>new arrivals</router-link></li>
             <hr class="border-color"/>
-            <li class=""><a href="" class="font "><span><img src="/static/images/best.png" alt="Icon" class="mr-2"></span>best sales</a></li>
+            <li class=""><router-link to="/#bestSale" class="font "><span><img src="/static/images/best.png" alt="Icon" class="mr-2"></span>best sales</router-link></li>
             <hr class="border-color"/>
-            <li class=""><a href="" class="font "><span><img src="/static/images/offer.png" alt="Icon" class="mr-2"></span>offers</a></li>
+            <li class=""><router-link to="/offer#offer" class="font "><span><img src="/static/images/offer.png" alt="Icon" class="mr-2"></span>offers</router-link></li>
             <hr class="border-color"/>
             <li class=""><p class="font2 "><span><img src="/static/images/list_heading.png" class="list-heading mr-2" alt="Icon"></span>categories</p>
               <ul class="list-unstyled">

@@ -3,6 +3,7 @@
       <new-product/>
       <slider/>
       <best-sale/>
+      <offer/>
       <!--<NewProductList></NewProductList>-->
       <!--&lt;!&ndash; banner-bottom &ndash;&gt;-->
       <!--<div class="banner-bottom">-->
@@ -1053,16 +1054,19 @@
 </template>
 
 <script>
-import Slider from './Slider'
-import NewProduct from './NewProduct'
-import BestSale from './BestSale'
+import Slider from './SliderSection'
+import NewProduct from './NewProductSection'
+import BestSale from './BestSaleSection'
+import Offer from './OfferSection'
 // import NewProductList from './NewProductList'
+
 export default {
   name: 'Home',
   components: {
     'slider': Slider,
     'new-product': NewProduct,
-    'best-sale': BestSale
+    'best-sale': BestSale,
+    'offer': Offer
     // 'NewProductList': NewProductList
   }
 }

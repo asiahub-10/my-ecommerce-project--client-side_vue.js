@@ -4,14 +4,14 @@
       <div class="banner" id="home1">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12 px-0">
               <vueper-slides autoplay fade :arrows="false" :dragging-distance="50" slide-content-outside="top" :slide-ratio="0.3" >
                 <vueper-slide class="mask flex-center pattern-1"
                   v-for="(slide, i) in slides"
                   :key="i"
                   :image="'http://localhost/my-project/public/' + slide.slider_image">
                   <template v-slot:content>
-                    <div class="text-light slide-content py-3 w-100 rounded">
+                    <div class="text-light slide-content py-3 w-100 ">
                       <h3>{{ slide.slider_title }}</h3>
                       <div>{{ slide.slider_description }}</div>
                     </div>
@@ -31,7 +31,7 @@ import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 
 export default {
-  name: 'Slider',
+  name: 'SliderSection',
   data () {
     return {
       autoPlaying: true,
