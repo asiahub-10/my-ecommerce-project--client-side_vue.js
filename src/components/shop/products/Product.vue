@@ -9,8 +9,28 @@
     <!--</div>-->
 
     <div class="view overlay rounded card-image">
+
       <img class="card-img-top rounded" :src="'http://localhost/my-project/public/'+product.product_image" alt="Product Image">
-      <router-link  :to="'/product-details/'+product.id">
+
+      <!--<router-link v-if="item.id === product.id" :to="'/product-details/'+product.id">-->
+        <!--&lt;!&ndash;<div v-if="item.quantity >= product.product_quantity" class="mask peach-gradient-rgba" style="opacity: 1;">&ndash;&gt;-->
+        <!--<div class="mask peach-gradient-rgba" style="opacity: 1;">-->
+          <!--<p class="overlay-text text-uppercase font-weight-bold">-->
+            <!--<img src="../../../../static/images/empty.png" alt="" class="mx-auto"/>-->
+            <!--Out of Stock-->
+          <!--</p>-->
+        <!--</div>-->
+        <!--<div class="mask peach-gradient-rgba">-->
+          <!--<p class="overlay-text">-->
+            <!--<i class="fas fa-2x fa-eye"></i>-->
+            <!--<br/>-->
+            <!--View details-->
+          <!--</p>-->
+        <!--</div>-->
+      <!--</router-link>-->
+
+      <!--<router-link v-else :to="'/product-details/'+product.id">-->
+      <router-link :to="'/product-details/'+product.id">
         <div v-if="product.product_quantity" class="mask peach-gradient-rgba">
           <p class="overlay-text">
             <i class="fas fa-2x fa-eye"></i>
@@ -25,6 +45,29 @@
           </p>
         </div>
       </router-link>
+
+      <!--<div v-for="(item) in items"-->
+           <!--:item="item"-->
+           <!--:key="item.id" v-if="item.quantity >= product.product_quantity">-->
+      <!--</div>-->
+      <!--<router-link :to="'/product-details/'+product.id">-->
+        <!--<div>-->
+          <!--<div v-if="product.product_quantity" class="mask peach-gradient-rgba">-->
+            <!--<p class="overlay-text">-->
+              <!--<i class="fas fa-2x fa-eye"></i>-->
+              <!--<br/>-->
+              <!--View details-->
+            <!--</p>-->
+          <!--</div>-->
+          <!--<div v-else class="mask peach-gradient-rgba" style="opacity: 1;">-->
+            <!--<p class="overlay-text text-uppercase font-weight-bold">-->
+              <!--<img src="../../../../static/images/empty.png" alt="" class="mx-auto"/>-->
+              <!--Out of Stock-->
+            <!--</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</router-link>-->
+
     </div>
     <div class="card-content text-center pt-4 bg-white">
       <h5 class="orange-text">{{ product.product_name }}</h5>
@@ -39,11 +82,24 @@
 
 <script>
 import AddToCart from './AddToCart'
+// import { mapGetters } from 'vuex'
 
 export default {
   name: 'Product',
   props: {
-    product: Object
+    product: Object,
+    item: Object
+  },
+  data () {
+    return {
+      // items: [{
+      //   id: null,
+      //   quantity: null
+      // }]
+    }
+  },
+  computed: {
+    // ...mapGetters({items: 'cartProducts'})
   },
   // props: ['products'],
   components: { AddToCart }
