@@ -31,7 +31,7 @@
             <li class=""><p class="font2 "><span><img src="/static/images/list_heading.png" class="list-heading mr-2" alt="Icon"></span>categories</p>
               <ul class="list-unstyled">
                 <li class="ml-5 pl-4 mb-2" v-for="category in categories"  v-bind:key="category.id">
-                  <router-link :to="'/product/category-product/'+category.id" class="font font-small">
+                  <router-link :to="'/product/category-product/'+category.id+'/#productContent'" class="font font-small">
                     <span><img src="/static/images/pointer2.png" alt="Icon" class="mr-2"></span>{{ category.category_name}}
                   </router-link>
                 </li>
@@ -41,7 +41,7 @@
             <li class=""><p class="font2 "><span><img src="/static/images/list_heading.png" class="list-heading mr-2" alt="Icon"></span>brands</p>
               <ul class="list-unstyled">
                 <li class="ml-5 pl-4 mb-2" v-for="brand in brands"  v-bind:key="brand.id">
-                  <router-link :to="'/product/brand-product/'+brand.id" class="font font-small">
+                  <router-link :to="'/product/brand-product/'+brand.id+'/#productContent'" class="font font-small">
                     <span><img src="/static/images/pointer2.png" alt="Icon" class="mr-2"></span>{{ brand.brand_name}}
                   </router-link>
                 </li>
@@ -50,13 +50,13 @@
             <hr class="border-color"/>
           </ul>
         </div>
-        <div class="col-lg-9 col-md-8 col-sm-7">
+        <div id="productContent" class="col-lg-9 col-md-8 col-sm-7">
           <div class="row">
             <div class="col-sm-6 px-1">
               <img src="/static/images/diccount_offer1.jpg" alt="Image" class="card-img-top rounded-0"/>
             </div>
             <div class="col-sm-6 px-1">
-              <img src="/static/images/diccount_offer2.jpg" alt="Image" class="card-img-top rounded-0"/>
+              <img src="/static/images/sale_discount.jpg" alt="Image" class="card-img-top rounded-0"/>
             </div>
           </div>
           <router-view></router-view>

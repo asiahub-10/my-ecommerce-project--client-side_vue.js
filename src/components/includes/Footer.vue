@@ -38,7 +38,7 @@
             <div class="border-bottom"></div>
             <ul class="list-unstyled text-left">
               <li class="mb-2 " v-for="category in categories" :key="category.id">
-                <router-link :to="'/product/category-product/'+category.id" class="text-style">{{ category.category_name}}</router-link>
+                <router-link :to="'/product/category-product/'+category.id+'/#productContent'" class="text-style">{{ category.category_name}}</router-link>
               </li>
             </ul>
           </div>
@@ -47,7 +47,7 @@
             <div class="border-bottom"></div>
             <ul class="list-unstyled text-left">
               <li class="mb-2 " v-for="brand in brands" :key="brand.id">
-                <router-link :to="'/product/brand-product/'+brand.id"  class="text-style">{{ brand.brand_name}}</router-link>
+                <router-link :to="'/product/brand-product/'+brand.id+'/#productContent'"  class="text-style">{{ brand.brand_name}}</router-link>
               </li>
             </ul>
           </div>

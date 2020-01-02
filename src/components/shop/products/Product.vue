@@ -12,24 +12,33 @@
 
       <img class="card-img-top rounded" :src="'http://localhost/my-project/public/'+product.product_image" alt="Product Image">
 
-      <!--<router-link v-if="item.id === product.id" :to="'/product-details/'+product.id">-->
-        <!--&lt;!&ndash;<div v-if="item.quantity >= product.product_quantity" class="mask peach-gradient-rgba" style="opacity: 1;">&ndash;&gt;-->
+      <!--<router-link v-if="item.quantity !== 0 " :to="'/product-details/'+product.id">-->
         <!--<div class="mask peach-gradient-rgba" style="opacity: 1;">-->
+        <!--&lt;!&ndash;<div class="mask peach-gradient-rgba" style="opacity: 1;">&ndash;&gt;-->
           <!--<p class="overlay-text text-uppercase font-weight-bold">-->
             <!--<img src="../../../../static/images/empty.png" alt="" class="mx-auto"/>-->
             <!--Out of Stock-->
           <!--</p>-->
         <!--</div>-->
-        <!--<div class="mask peach-gradient-rgba">-->
+      <!--</router-link>-->
+
+      <!--<router-link v-else :to="'/product-details/'+product.id">-->
+      <!--<router-link :to="'/product-details/'+product.id">-->
+        <!--<div v-if="product.product_quantity" class="mask peach-gradient-rgba">-->
           <!--<p class="overlay-text">-->
             <!--<i class="fas fa-2x fa-eye"></i>-->
             <!--<br/>-->
             <!--View details-->
           <!--</p>-->
         <!--</div>-->
+        <!--<div v-else class="mask peach-gradient-rgba" style="opacity: 1;">-->
+          <!--<p class="overlay-text text-uppercase font-weight-bold">-->
+            <!--<img src="../../../../static/images/empty.png" alt="" class="mx-auto"/>-->
+            <!--Out of Stock-->
+          <!--</p>-->
+        <!--</div>-->
       <!--</router-link>-->
 
-      <!--<router-link v-else :to="'/product-details/'+product.id">-->
       <router-link :to="'/product-details/'+product.id">
         <div v-if="product.product_quantity" class="mask peach-gradient-rgba">
           <p class="overlay-text">
@@ -74,6 +83,7 @@
       <div class="simpleCart_shelfItem">
         <p class=""><i class="text-muted font-weight-bold">{{product.product_price | formatMoney}}</i></p>
         <span hidden>{{ product.product_quantity }}</span>
+        <!--<span v-if="item">{{ item.quantity }}</span>-->
         <AddToCart class="btn sunny-morning-gradient btn-block btn-text" :product="product"/>
       </div>
     </div>
