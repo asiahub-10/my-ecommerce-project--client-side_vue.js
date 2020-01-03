@@ -8,15 +8,15 @@ In addition, the back-end of this site, which is only accessed by the admin pane
 
 ## Preview
 Click to
-<a href="https://asiahub-10.github.io/my-project-preview/">PREVIEW VIDEO</a>
+<a href="https://asiahub-10.github.io/my-project-front-preview/">PREVIEW VIDEO</a>
 to watch the preview of this project.
 
 ## Aditional Links
 The aditional information about the front-end, which is related to this project, is as follows:
 
-Preview video: https://asiahub-10.github.io/my-project-front-preview/
+Preview video: https://asiahub-10.github.io/my-project-preview/
 
-Git Repo: https://github.com/asiahub-10/my-project-front
+Git Repo: https://github.com/asiahub-10/my-project
 
 #
 
