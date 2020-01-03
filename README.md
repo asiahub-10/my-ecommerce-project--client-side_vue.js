@@ -1,6 +1,24 @@
-# my-project-front
+## About my-project-front
 
 > A Vue.js project
+
+This is a dynamic ecommerce website which is created with vue js. Basically this is front-end of the ecommerce site and also linked up with a back-end. 
+
+In addition, the back-end of this site, which is only accessed by the admin panel, is created with laravel whose link is also given bellow.
+
+## Preview
+Click to
+<a href="https://asiahub-10.github.io/my-project-preview/">PREVIEW VIDEO</a>
+to watch the preview of this project.
+
+## Aditional Links
+The aditional information about the front-end, which is related to this project, is as follows:
+
+Preview video: https://asiahub-10.github.io/my-project-front-preview/
+
+Git Repo: https://github.com/asiahub-10/my-project-front
+
+#
 
 ## Build Setup
 
