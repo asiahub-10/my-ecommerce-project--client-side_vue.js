@@ -12,7 +12,7 @@ Click to
 to watch the preview of this project.
 
 ## Aditional Links
-The aditional information about the front-end, which is related to this project, is as follows:
+The aditional information about the back-end (admin site), which is related to this project, is as follows:
 
 Preview video: https://asiahub-10.github.io/my-project-preview/
 
