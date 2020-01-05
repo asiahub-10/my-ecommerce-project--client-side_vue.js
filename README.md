@@ -7,7 +7,7 @@ This is a dynamic ecommerce website which is created with vue js. Basically this
 In addition, the back-end of this site, which is only accessed by the admin panel, is created with laravel whose link is also given bellow.
 
 ## Preview
-Click to
+Click on
 <a href="https://asiahub-10.github.io/my-project-front-preview/">PREVIEW VIDEO</a>
 to watch the preview of this project.
 
